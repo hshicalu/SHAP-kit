@@ -7,7 +7,6 @@ input/
 # Python-related
 .ipynb_checkpoints/
 __pycache__/
-*.ipynb
 
 # direnv
 .envrc
