@@ -10,7 +10,7 @@ import optuna
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, mean_squared_log_error
 
-from preprocess import *
+from preprocess import preprocess
 from configs import *
 
 import shap
@@ -32,8 +32,8 @@ def main():
     train = train.replace("male",0).replace("female",1).replace("S",0).replace("C",1).replace("Q",2)
     test = test.replace("male",0).replace("female",1).replace("S",0).replace("C",1).replace("Q",2)
     
-    train = Preprocess(train, train)
-    test = Preprocess(test, train)
+    train = preprocess(train, train)
+    test = preprocess(test, train)
 
     train_data = train.values
     X = train_data[:, 2:]
