@@ -45,7 +45,8 @@ def main():
     X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=.2, random_state=0)
     lgb_train = lgb.Dataset(X_train, y_train, free_raw_data=False)
     lgb_eval = lgb.Dataset(X_valid, y_valid, reference=lgb_train, free_raw_data=False)
-
+    
+    ''' Training '''
     gbm = lgb.train(cfg.lgb_params,
                 lgb_train,
                 valid_sets=[lgb_train, lgb_eval],
