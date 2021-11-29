@@ -15,7 +15,7 @@ from configs import *
 
 import shap
 
-def main():
+if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=str, default='Baseline',
                         help="config name in configs.py")
@@ -63,9 +63,6 @@ def main():
     # explain the model's predictions using SHAP
     # (same syntax works for LightGBM, CatBoost, scikit-learn, transformers, Spark, etc.)
     shap.initjs()
-    explainer = shap.TreeExplainer(model=gbm, feature_perturbation='tree_path_dependent', model_output='margin')
-    shap_values = explainer.shap_values(X=X_train)
-    shap.summary_plot(shap_values, X_train, plot_type="bar")
-
-if __name__ == '__main__':
-    main()
+    explainer = shap.TreeExplainer(model=gbm, data=X_train)
+    shap_values = explainer.shap_values(X_train)
+    shap.summary_plot(shap_values, features=X_train, plot_type="bar")
