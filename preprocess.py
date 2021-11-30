@@ -1,17 +1,6 @@
 import pandas as pd
 import numpy as np
 
-
-# class Preprocess:
-#     def __init__(self, data: pd.DataFrame, train: pd.DataFrame) -> pd.DataFrame:
-#         self.data = data
-#         self.train = train
-#         print(type(data))
-#         print(type(train))
-#         if self.data is not None:
-#             self._preprocess(self.data, self.train)
-#         else:
-#             pass
 def preprocess(data, train):
     data['Age'].fillna(train.Age.mean(), inplace=True)
     data["Embarked"].fillna(train.Embarked.mean(), inplace=True)
