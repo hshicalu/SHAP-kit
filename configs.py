@@ -1,12 +1,10 @@
 
 
 class Baseline:
-    
     name = 'baseline'
     seed = 2021
     train = "input/train.csv"
     test = "input/test.csv"
-
     lgb_params = {
         'boosting_type': 'gbdt',
         'max_depth': -1,
