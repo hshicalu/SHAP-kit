@@ -69,6 +69,7 @@ if __name__ == '__main__':
     # explain the model's predictions using SHAP
     # (same syntax works for LightGBM, CatBoost, scikit-learn, transformers, Spark, etc.)
     shap.initjs()
-    explainer = shap.TreeExplainer(model=gbm, data=X_train)
-    shap_values = explainer.shap_values(X_train, check_additivity=False)
-    shap.summary_plot(shap_values, features=X_train, plot_type="bar")
+    explainer = shap.TreeExplainer(model=gbm, data=X_test)
+    shap_values = explainer.shap_values(X_test, check_additivity=False)
+    shap.summary_plot(shap_values, features=X_test, plot_type="bar")
+
