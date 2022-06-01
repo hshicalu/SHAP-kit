@@ -12,7 +12,7 @@ from sklearn.preprocessing import RobustScaler
 from sklearn.metrics import mean_absolute_error, mean_squared_error, mean_squared_log_error
 
 from preprocess import preprocess
-from configs import *
+from configs import Baseline
 
 import shap
 
